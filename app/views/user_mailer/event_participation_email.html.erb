@@ -1,0 +1,17 @@
+<h1>Nouvelle participation 🎉</h1>
+
+<p>
+  Bonjour <%= @admin.first_name || @admin.email %>,
+</p>
+
+<p>
+  <strong><%= @participant.email %></strong> s'est inscrit à ton événement :
+</p>
+
+<p>
+  <strong><%= @event.title %></strong><br>
+  Date : <%= @event.start_date %><br>
+  Lieu : <%= @event.location %>
+</p>
+
+<p>À bientôt !</p>

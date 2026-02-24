@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/flatly/bootstrap.min.css" rel="stylesheet">
+  </head>
+<body>
+<div class="container my-4">
+  <h1><%= @event.title %></h1>
+  <p><%= @event.description %></p>
+  <p><strong>Début :</strong> <%= @event.start_date.strftime("%d %b %Y %H:%M") %></p>
+  <p><strong>Durée :</strong> <%= @event.duration %> minutes</p>
+  <p><strong>Lieu :</strong> <%= @event.location %></p>
+  <p><strong>Prix :</strong> <%= @event.price %>€</p>
+  <p><strong>Créateur :</strong> <%= @event.user.email %></p>
+</div>
+
+<h1>Events#show</h1>
+<p>Find me in app/views/events/show.html.erb</p>
+
+</body>
+
+</html>
