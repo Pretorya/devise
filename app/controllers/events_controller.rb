@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
+  before_action :is_admin?, only: [ :update, :destroy]
 
   def index
     @events = Event.all
@@ -26,5 +28,9 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :description, :start_date, :duration, :price, :location)
+  end
+
+  def is_admin?
+    redirect_to root_path, alert: "Tu n'es pas autorisé" unless current_user == @event.user
   end
 end

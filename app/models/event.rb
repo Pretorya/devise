@@ -25,6 +25,10 @@ class Event < ApplicationRecord
       if duration <= 0 || duration % 5 != 0
         errors.add(:duration, "Un nombre positif, par tranche de 5 minutes seulement")
       end
+
+      def is_free?
+        price == 0
+      end
   
   end
 end

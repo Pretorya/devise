@@ -15,8 +15,21 @@
   <p><strong>Créateur :</strong> <%= @event.user.email %></p>
 </div>
 
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<% if user_signed_in? %>
+
+  <% if current_user == @event.user %>
+    <%= link_to "Mon espace événement", event_atendances_path(@event) %>
+
+  <% elsif @event.users.include?(current_user) %>
+    <p>Tu participes déjà à cet événement ✅</p>
+
+  <% else %>
+    <%= link_to "Rejoindre l’événement", new_event_atendance_path(@event), class: "btn btn-primary" %>
+  <% end %>
+
+<% else %>
+  <%= link_to "Connecte-toi pour participer", new_user_session_path %>
+<% end %>
 
 </body>
 
